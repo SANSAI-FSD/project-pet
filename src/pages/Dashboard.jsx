@@ -5,7 +5,7 @@ import Home from './Home'
 const Dashboard = () => {
   return (
     <div>
-    <Navbar/>
+    
     <Home/>
       <p>hello</p>
     </div>

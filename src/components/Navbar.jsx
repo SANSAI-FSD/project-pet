@@ -1,21 +1,23 @@
+
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import './Navbar.css'; 
 import logo from '../assets/Logo.jpg';
-import Home from "../pages/Home";
-import PetList from "../pages/PetList.jsx";
 
-function Navbar({setShowQR}) {
+function Navbar({ setShowQR, setShowAddPet }) {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-success px-4">
       <Link to="/" className="navbar-brand d-flex align-items-center">
-       <img src={logo} alt="LovePaws Logo" className="logo-circle" />
+        <img src={logo} alt="LovePaws Logo" className="logo-circle" />
       </Link>
-
 
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav ms-auto">
           <button className="neon-pulse btn" onClick={() => setShowQR(true)}>Donate</button>
+          <button className="neon-pulse btn" onClick={() => setShowAddPet(true)}>Add Pet</button>
+
+          {/* <button className="neon-pulse btn" onClick={() => setShowAddPetForm(true)}>Add Pet</button> */}
+
           <li className="nav-item">
             <NavLink to="/Dashboard" className="nav-link" end>
               Home

@@ -1,15 +1,25 @@
 import React, { useState } from 'react';
+import './PetList.css'
 import AddPetForm from '../components/AddPetForm';
+import Navbar from '../components/Navbar';
+import AllPets from '../components/AllPets';
+
 
 function PetList() {
   const [showForm, setShowForm] = useState(false);
+  
 
   return (
     <div >
-      <button onClick={() => setShowForm(true)} >Add Pet</button>
-      {showForm && <AddPetForm onClose={() => setShowForm(false)} />}
-      {/* Existing pet cards can go here */}
+    
+    
+      <AllPets/>
+
+
+      
     </div>
+
+    
   );
 }
 
