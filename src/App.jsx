@@ -1,44 +1,55 @@
-import React, { useState } from "react";
+
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
 import AuthForm from "./components/AuthForm";
 import Dashboard from "./pages/Dashboard";
+import PrivateRoute from "./components/PrivateRoute";
 import PetList from "./pages/PetList";
-import AddPetForm from "./components/AddPetForm"; // Import AddPetForm
-import qrImage from "./assets/qr.jpg"; // Your QR image
+import CareTips from "./pages/CareTips";
 
-function App() {
-  const [showQR, setShowQR] = useState(false);
-  const [showAddPet, setShowAddPet] = useState(false); // State for AddPetForm
 
-  return (
-    <BrowserRouter>
-      {/* Pass both handlers to Navbar */}
-      <Navbar setShowQR={setShowQR} setShowAddPet={setShowAddPet} />
+const App = () => (
+  <BrowserRouter>
+    {/* <Routes>
+      <Route path="/" element={<AuthForm />} />
+      <Route
+        path="/dashboard"
+        element={
+          <PrivateRoute>
+            <Dashboard />
+          </PrivateRoute>
+        }
+      />
+    </Routes> */}
+    <Routes>
+  <Route path="/" element={<AuthForm />} />
+  <Route
+    path="/dashboard"
+    element={
+      <PrivateRoute>
+        <Dashboard />
+      </PrivateRoute>
+    }
+  />
+  <Route
+    path="/PetList"
+    element={
+      <PrivateRoute>
+        <PetList />
+      </PrivateRoute>
+    }
+  />
+  <Route
+    path="/care-tips"
+    element={
+      <PrivateRoute>
+        <CareTips />
+      </PrivateRoute>
+    }
+  />
+</Routes>
 
-      {/* QR Popup */}
-      {showQR && (
-        <div className="qr-popup-overlay">
-          <div className="qr-popup">
-            <img src={qrImage} alt="QR Code" className="qr-image" />
-            <button className="close-btn" onClick={() => setShowQR(false)}>
-              Close
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* Add Pet Popup Form */}
-      {showAddPet && <AddPetForm onClose={() => setShowAddPet(false)} />}
-
-      {/* Routes */}
-      <Routes>
-        <Route path="/" element={<AuthForm />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/PetList" element={<PetList />} />
-      </Routes>
-    </BrowserRouter>
-  );
-}
+  </BrowserRouter>
+);
 
 export default App;

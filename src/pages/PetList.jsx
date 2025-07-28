@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import './PetList.css'
-import AddPetForm from '../components/AddPetForm';
-import Navbar from '../components/Navbar';
 import AllPets from '../components/AllPets';
+import Navbar from '../components/Navbar';
 
 
 function PetList() {
@@ -11,6 +10,7 @@ function PetList() {
 
   return (
     <div >
+    <Navbar/>
     
     
       <AllPets/>

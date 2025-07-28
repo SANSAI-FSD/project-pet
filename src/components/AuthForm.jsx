@@ -11,25 +11,27 @@ const AuthForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const endpoint = isLogin ? "login" : "register";
+    console.log("Submitting:", { username, password });
     const res = await fetch(`https://project-user-login-and-registers.onrender.com/api/auth/${endpoint}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, password }),
+      
     });
 
     const data = await res.json();
 
-    if (res.ok) {
-      if (isLogin) {
-        localStorage.setItem("user", JSON.stringify(data.user));
-        navigate("/dashboard");
-      } else {
-        alert("Registered successfully! Please login.");
-        setIsLogin(true);
-      }
-    } else {
-      alert(data.error || "Something went wrong");
-    }
+    
+    if (res.ok && isLogin) {
+  console.log("Login success", data);
+  if (data?.username) {
+  localStorage.setItem("user", JSON.stringify({ username: data.username }));
+  navigate("/dashboard");
+}
+ else {
+    console.warn("No user data in response.");
+  }
+}
   };
 
   return (
