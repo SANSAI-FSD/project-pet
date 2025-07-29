@@ -20,7 +20,7 @@ const Dashboard = () => {
       
       {/* Main Content */}
       <Home />
-      <p>Hello from Dashboard</p>
+      
     </div>
   );
 };
