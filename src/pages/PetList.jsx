@@ -1,25 +1,22 @@
 import React, { useState } from 'react';
-import './PetList.css'
+import './PetList.css';
 import AllPets from '../components/AllPets';
-import Navbar from '../components/Navbar';
-
+import Popup from '../components/Popup';
 
 function PetList() {
-  const [showForm, setShowForm] = useState(false);
-  
+  const [showQR, setShowQR] = useState(false);
+  const [showAddPet, setShowAddPet] = useState(false);
 
   return (
-    <div >
-    <Navbar/>
-    
-    
-      <AllPets/>
-
-
-      
+    <div>
+      <Popup
+        showQR={showQR}
+        setShowQR={setShowQR}
+        showAddPet={showAddPet}
+        setShowAddPet={setShowAddPet}
+      />
+      <AllPets />
     </div>
-
-    
   );
 }
 

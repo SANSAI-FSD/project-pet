@@ -3,6 +3,10 @@ import './CareTips.css';
 import { Link } from 'react-router-dom';
 import PetServices from '../components/PetServices';
 import Navbar from '../components/Navbar';
+import { useState } from 'react';
+import Popup from '../components/Popup';
+// import AddPetForm from '../components/AddPetForm';
+// import qrImage from '../assets/qr.jpg';
 
 const tips = [
   {
@@ -38,9 +42,18 @@ const tips = [
 ];
 
 function CareTips() {
+  const [showQR, setShowQR] = useState(false);
+  const [showAddPet, setShowAddPet] = useState(false);
+    
+  
   return (
     <>
-        <Navbar />
+      <Popup
+        showQR={showQR}
+        setShowQR={setShowQR}
+        showAddPet={showAddPet}
+        setShowAddPet={setShowAddPet}
+      />
     <div className="care-tips-container">
       <h2 className="care-title">Pet Care Tips 🐾</h2>
       <div className="tips-grid">
