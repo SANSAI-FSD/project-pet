@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './Home.css';
-import catDogImg from '../assets/hero.jpeg';
 import birdFood from '../assets/bird.png';
 import dogFood from '../assets/Dog.png';
 import catFood from '../assets/cat.png';
@@ -8,16 +7,13 @@ import freezeDogFood from '../assets/dogfood.png';
 import accessories from '../assets/accessories.png';
 import petDeals from '../assets/petDeal.png';
 import beagle from '../assets/beagle.png';
-import petPack from '../assets/pet-pack.jpeg';
 import bestfood from '../assets/deal.png';
 import { Link } from 'react-router-dom';
 // import './PetFoodForm.css';
-import ext from '../assets/ext.png'
-import extt from '../assets/extt.png';
-import PetList from './PetList';
-import catdog from '../assets/catdog.png';
+
 import hero3 from '../assets/hero3.jpg';
-import hero4 from '../assets/hero4.png';
+// import herovedio from '../assets/hero-video.mp4';
+import heroVideo from '../assets/hero-vedio.mp4';
 import large from '../assets/large.jpg';
 function Home() {
   const [showButton, setShowButton] = useState(false);
@@ -34,25 +30,38 @@ function Home() {
     <div className="homepage-container">
       
       {/* Hero Section */}
-      <section className="hero-section">
-        {/* <div className="hero-text">
-          <h1>Unconditional Love Awaits 🐾</h1>
-          <h3>
-            🦴Find your perfect companion today. Special adoption offers this week!🐾
-            <br />
-            🦴 Bring home happiness — adopt, love, and make a lifelong friend today!
-          </h3>
-        </div> */}
-        <img src={large} alt="Cat and Dog" className="hero-img" />
-      </section>
+      {/* <section className="hero-section">
+        <video autoPlay loop muted className="video-background">
+        <source src={heroVideo} type="video/mp4" />
+        Your browser does not support the video tag.
+        </video>
+      </section> */}
+
+      {/* <section className="hero-section">
+  <video autoPlay loop muted className="video-background">
+    <source src={heroVideo} type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</section> */}
+
+
+<section className="hero-section">
+  <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="video-background"
+  >
+    <source src={heroVideo} type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</section>
+
 
       {/* search container */}
 
-      {/* <div>
-       <h2><Link to="/PetList">🔍 Find Your Pet</Link></h2>
-        <p>Looking for a furry or feathered friend? 🐾</p>
-        <p>👇Click a category below to quickly browse adoptable pets.</p>
-      </div> */}
+     
 
        <div className="pet-finder-container">
       <h2><Link to="/PetList" className="pet-link">🔍 Find Your Pet</Link></h2>

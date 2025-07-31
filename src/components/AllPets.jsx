@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./AllPets.css"; // We'll create this CSS file
 
-const API = import.meta.env.VITE_API_BASE || "https://project-user-login-and-registers.onrender.com/api/pets";
+const API = import.meta.env.VITE_API_BASE || "https://project-user-login-and-registers.onrender.com/api/pets/all-pets";
 
 function AllPets() {
   const [pets, setPets] = useState([]);
