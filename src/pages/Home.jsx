@@ -45,7 +45,15 @@ function Home() {
 </section> */}
 
 
-<section className="hero-section">
+{/* <section className="hero-section">
+ <div className="hero-text">
+          <h1>Unconditional Love Awaits 🐾</h1>
+          <h3>
+            🦴Find your perfect companion today. Special adoption offers this week!🐾
+            <br />
+            🦴 Bring home happiness — adopt, love, and make a lifelong friend today!
+          </h3>
+        </div>
   <video
     autoPlay
     loop
@@ -56,7 +64,23 @@ function Home() {
     <source src={heroVideo} type="video/mp4" />
     Your browser does not support the video tag.
   </video>
-</section>
+</section> */}
+
+<section className="hero-section">
+      <video autoPlay loop muted playsInline className="video-background">
+        <source src={heroVideo} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      <div className="hero-text">
+        <h1 className="hero-heading">Unconditional Love Awaits 🐾</h1>
+        <h3 className="hero-subtext">
+          🦴 Find your perfect companion today. Special adoption offers this week!
+          <br />
+          🦴 Bring home happiness — adopt, love, and make a lifelong friend today!
+        </h3>
+      </div>
+    </section>
 
 
       {/* search container */}

@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import Navbar from '../components/Navbar';
+import './Dashboard.css';
 import Home from './Home';
 import Popup from '../components/Popup';
 
@@ -10,7 +10,7 @@ const Dashboard = () => {
   const [showAddPet, setShowAddPet] = useState(false);
 
   return (
-    <div>
+    <div className='dashboard-container'>
     <Popup
         showQR={showQR}
         setShowQR={setShowQR}

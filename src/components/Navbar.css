@@ -5,8 +5,14 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.8rem 1.5rem;
-  background-color: black; /* green background */
+  background-color: black;
   color: white;
+
+  position: fixed;     /* ✅ Fixes navbar to top */
+  top: 0;              /* ✅ Aligns to top */
+  left: 0;
+  width: 100%;         /* Full width */
+  z-index: 1000;       /* Keeps it on top of other elements */
 }
 
 .logo-circle {
