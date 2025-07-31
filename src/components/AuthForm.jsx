@@ -170,19 +170,38 @@ const AuthForm = () => {
 
       const data = await res.json();
 
+      // if (res.ok) {
+      //   if (isLogin) {
+      //     localStorage.setItem("user", JSON.stringify({ username: data.username }));
+      //     navigate("/dashboard");
+      //   } else {
+      //     alert("✅ Registration successful! You can now log in.");
+      //     setIsLogin(true);
+      //     setUsername("");
+      //     setPassword("");
+      //   }
+      // } else {
+      //   alert(data.error || "Something went wrong");
+      // }
+
       if (res.ok) {
-        if (isLogin) {
-          localStorage.setItem("user", JSON.stringify({ username: data.username }));
-          navigate("/dashboard");
-        } else {
-          alert("✅ Registration successful! You can now log in.");
-          setIsLogin(true);
-          setUsername("");
-          setPassword("");
-        }
-      } else {
-        alert(data.error || "Something went wrong");
-      }
+  if (isLogin) {
+    localStorage.setItem("user", JSON.stringify({ username: data.username }));
+
+    if (data.username.endsWith("@admin")) {
+      navigate("/admin"); // only for admins
+    } else {
+      navigate("/dashboard"); // regular users
+    }
+  } else {
+    alert("✅ Registration successful! You can now log in.");
+    setIsLogin(true);
+    setUsername("");
+    setPassword("");
+  }
+}
+
+
     } catch (error) {
       alert("Something went wrong. Try again.");
     } finally {

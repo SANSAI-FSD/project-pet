@@ -103,3 +103,8 @@
     color:white;
   }
 }
+
+.navbar-nav .admin-link {
+  color: yellow; /* or your preferred highlight color */
+  font-weight: bold;
+}

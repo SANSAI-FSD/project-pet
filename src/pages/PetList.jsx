@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './PetList.css';
 import AllPets from '../components/AllPets';
 import Popup from '../components/Popup';
+import Footer from '../components/Footer';
 
 function PetList() {
   const [showQR, setShowQR] = useState(false);
@@ -16,6 +17,7 @@ function PetList() {
         setShowAddPet={setShowAddPet}
       />
       <AllPets />
+      <Footer/>
     </div>
   );
 }

@@ -5,6 +5,7 @@ import PetServices from '../components/PetServices';
 import Navbar from '../components/Navbar';
 import { useState } from 'react';
 import Popup from '../components/Popup';
+import Footer from '../components/Footer';
 // import AddPetForm from '../components/AddPetForm';
 // import qrImage from '../assets/qr.jpg';
 
@@ -68,7 +69,9 @@ function CareTips() {
       <br />
       <hr />
       <PetServices />
+      
     </div>
+    <Footer/>
     </>
 
   );

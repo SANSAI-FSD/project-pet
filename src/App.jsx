@@ -6,21 +6,12 @@ import Dashboard from "./pages/Dashboard";
 import PrivateRoute from "./components/PrivateRoute";
 import PetList from "./pages/PetList";
 import CareTips from "./pages/CareTips";
+import AdminPanel from "./pages/AdminPanel";
 
 
 const App = () => (
   <BrowserRouter>
-    {/* <Routes>
-      <Route path="/" element={<AuthForm />} />
-      <Route
-        path="/dashboard"
-        element={
-          <PrivateRoute>
-            <Dashboard />
-          </PrivateRoute>
-        }
-      />
-    </Routes> */}
+    
     <Routes>
   <Route path="/" element={<AuthForm />} />
   <Route
@@ -47,7 +38,17 @@ const App = () => (
       </PrivateRoute>
     }
   />
+  <Route
+  path="/admin"
+  element={
+    <PrivateRoute adminOnly={true}>
+      <AdminPanel />
+    </PrivateRoute>
+  }
+/>
 </Routes>
+
+
 
   </BrowserRouter>
 );

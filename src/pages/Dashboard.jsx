@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import './Dashboard.css';
 import Home from './Home';
 import Popup from '../components/Popup';
+import Footer from '../components/Footer.jsx';
 
 
 const Dashboard = () => {
@@ -20,6 +21,8 @@ const Dashboard = () => {
       
       {/* Main Content */}
       <Home />
+      <Footer />
+
       
     </div>
   );
