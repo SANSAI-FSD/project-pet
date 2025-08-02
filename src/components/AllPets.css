@@ -1,106 +1,199 @@
+/* Base Styles */
 .pets-container {
   padding: 2rem;
-  /* background: #c4c8ca;  */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f8fa;
   min-height: 100vh;
+  text-align: center;
 }
 
 .pets-title {
-  text-align: center;
   font-size: 2rem;
-  color: #000;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  color: #333;
 }
 
+/* Grid Layout */
 .pets-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  gap: 1.5rem;
+  justify-items: center;
 }
 
+/* Pet Card */
 .pet-card {
-  background: #0c0c0c;
-  color: #fff;
-  border-radius: 10px;
+  background: #fff;
   padding: 1rem;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 0.6s ease forwards;
   opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.pet-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 .pet-img {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 12px;
+  margin-bottom: 0.75rem;
 }
 
 .pet-name {
-  font-size: 1.4rem;
-  margin: 0.5rem 0;
-  text-shadow: 0 0 5px cyan;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 0.3rem;
+}
+
+.pet-card p {
+  margin: 0.25rem 0;
+  color: #555;
 }
 
 .adopt-btn {
-  background: #666;
+  margin-top: 0.8rem;
+  background-color: #007bff;
+  color: white;
+  padding: 0.5rem 1.2rem;
   border: none;
-  padding: 0.5rem 1rem;
-  color: #fff;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
 }
+
 .adopt-btn:hover {
-  background: #888;
+  background-color: #0056b3;
 }
 
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Loading & Error */
+.loading,
+.error {
+  font-size: 1.2rem;
+  color: #dc3545;
+  margin-top: 2rem;
 }
 
-
+/* Adoption Form */
 .adoption-form-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
-  align-items: center;
   justify-content: center;
-  z-index: 10;
+  align-items: center;
+  z-index: 1000;
 }
 
 .adoption-form {
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  background: #fff;
+  padding: 2rem;
+  border-radius: 16px;
   width: 90%;
   max-width: 400px;
-  animation: slideIn 0.4s ease-in-out;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.adoption-form h2 {
+  margin-bottom: 1rem;
+  color: #333;
 }
 
 .adoption-form input {
   width: 100%;
-  padding: 10px;
-  margin: 10px 0;
+  padding: 0.6rem;
+  margin: 0.5rem 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
 }
 
 .btn-group {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0.6rem;
+  margin-top: 1rem;
 }
 
 .btn-group button {
-  padding: 10px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
   cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn-group button[type="submit"] {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn-group button[type="submit"]:hover {
+  background-color: #218838;
+}
+
+.btn-group button:nth-child(2) {
+  background-color: #25d366;
+  color: white;
+}
+
+.btn-group button:nth-child(2):hover {
+  background-color: #1ebd5c;
+}
+
+.btn-group button:nth-child(3) {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-group button:nth-child(3):hover {
+  background-color: #c82333;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .pets-container {
+    padding: 1rem;
+  }
+
+  .pet-img {
+    height: 180px;
+  }
+
+  .adoption-form {
+    padding: 1.2rem;
+  }
+
+  .adoption-form input {
+    font-size: 0.95rem;
+  }
+
+  .btn-group button {
+    font-size: 0.95rem;
+  }
 }
 
 .loading {
