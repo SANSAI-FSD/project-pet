@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import AdminNavbar from "./AdminNavbar";
 import "./AdminSoldPets.css";
 import Popup from "./Popup";
+import { style } from "framer-motion/client";
 
 const AdminSoldPets = () => {
   const [soldPets, setSoldPets] = useState([]);
@@ -68,11 +69,11 @@ const AdminSoldPets = () => {
               {/* <img src={pet.imageUrl} alt={pet.name} className="sold-pet-image" /> */}
               <div className="sold-pet-details">
                 <h3>{pet.name}</h3>
-                <p><strong>Breed:</strong> {pet.breed}</p>
-                <p><strong>Age:</strong> {pet.age}</p>
+                <p><strong className="soldpetdetails">Breed:</strong> {pet.breed}</p>
+                <p><strong className="soldpetdetails">Age:</strong> {pet.age}</p>
                 {/* <p><strong>Category:</strong> {pet.category}</p>
                 <p><strong>Description:</strong> {pet.description}</p> */}
-                <p><strong>Sold At:</strong> {new Date(pet.soldAt).toLocaleString()}</p>
+                <p><strong className="soldpetdetails">Sold At:</strong> {new Date(pet.soldAt).toLocaleString()}</p>
                 
               </div>
               

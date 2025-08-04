@@ -107,7 +107,7 @@ const AdminUsers = () => {
                   <p><strong>{user.username}</strong></p>
                   <p>{user.email}</p>
                 </div>
-                <button className="delete-btn" onClick={() => handleDelete(user._id)}>Delete</button>
+                <button className="delete-btns" onClick={() => handleDelete(user._id)}>Delete</button>
               </li>
             ))}
           </ul>

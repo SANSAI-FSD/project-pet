@@ -127,6 +127,7 @@
 .hero-heading {
   font-size: 4rem;
   font-weight: 700;
+  color: white;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
   animation: slideInDown 1.2s ease-out forwards;
 }

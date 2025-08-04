@@ -18,7 +18,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
+  /* gap: 1rem; */
   margin-bottom: 2rem;
 }
 
@@ -34,16 +34,26 @@
 .pet-list {
   list-style: none;
   padding: 0;
-  display: grid;
+  /* display: grid;
+  
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1rem;
+  gap: 1rem; */
 }
 
+.pet-info{
+  background-color: #adb5bd;
+  max-width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 /* Pet Card */
 .pet-card {
   background-color: #ffffff;
   padding: 1rem;
   border-radius: 12px;
+  max-width: 270px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   transition: transform 0.2s ease;
 }
@@ -197,22 +207,23 @@ h1 {
 }
 
 .delete-btn {
-  background-color: goldenrod;
+  background-color: #6c757d;
   color: black;
 }
 
 .delete-btn:hover {
-  background-color: #cc0000;
+  background-color: #212529;
+  color: #fff;
 }
 
 .sold-btn {
-  background-color: #28a745;
+  background-color: #212529;
   color: #fff;
   margin-top: 8px;
 }
 
 .sold-btn:hover {
-  background-color: #1e7e34;
+  background-color: #6c757d;
 }
 
 /* Loader styles */

@@ -1,93 +1,39 @@
 .admin-dashboard {
   padding: 2rem;
-  max-width: 1200px;
-  margin: auto;
+  text-align: center;
 }
 
 .dashboard-title {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 2rem;
-}
-
-.date-filter {
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-.date-filter input {
-  padding: 0.5rem;
-  margin-left: 0.5rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
 }
 
 .stat-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1.5rem;
-  margin-bottom: 3rem;
 }
 
 .stat-card {
-  color: lime;
-  border-radius: 12px;
-  padding: 1.5rem;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1.2rem;
+  border-radius: 1rem;
+  color: white;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-8px) scale(1.03);
 }
 
 .stat-label {
-  font-size: 1.1rem;
-  margin-bottom: 0.4rem;
+  font-size: 1rem;
+  opacity: 0.9;
 }
 
 .stat-value {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: bold;
-  
-}
-
-.chart-section {
-  margin-top: 2rem;
-}
-
-.chart-section h2 {
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-.loading, .error {
-  text-align: center;
-  font-size: 1.2rem;
-  margin-top: 2rem;
-}
-
-.error {
-  color: red;
-}
-
-
-/* Loader styles */
-.loading-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-top: 80px;
-}
-
-.spinner {
-  border: 6px solid #f3f3f3;
-  border-top: 6px solid #28a745;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 0.9s linear infinite;
-  margin-bottom: 12px;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  margin-top: 0.5rem;
 }

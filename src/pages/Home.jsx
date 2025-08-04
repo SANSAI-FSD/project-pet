@@ -9,6 +9,7 @@ import petDeals from '../assets/petDeal.png';
 import beagle from '../assets/beagle.png';
 import bestfood from '../assets/deal.png';
 import { Link } from 'react-router-dom';
+// import PromoSection from '../components/PromoSection';
 // import './PetFoodForm.css';
 
 import hero3 from '../assets/hero3.jpg';
@@ -300,6 +301,7 @@ function Home() {
       <p>Up to 25% Off on Pet Foods</p>
     </div>
   </section>
+  {/* <PromoSection /> */}
 </section>
 
 

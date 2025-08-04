@@ -38,7 +38,7 @@
 }
 
 .sold-pet-card {
-  background-color: #fff;
+  background-color:#6c757d;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -46,7 +46,8 @@
 }
 
 .sold-pet-card:hover {
-  transform: scale(1.02);
+  transform: scale(1.5);
+  border: black 2px solid;
 }
 
 .sold-pet-image {
@@ -58,18 +59,25 @@
 
 .sold-pet-details {
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .sold-pet-details h3 {
   margin: 0 0 0.5rem;
-  color: #2c3e50;
+  color: black;
   font-size: 1.3rem;
+}
+.soldpetdetails {
+  color: black;
 }
 
 .sold-pet-details p {
   margin: 0.3rem 0;
   font-size: 0.95rem;
-  color: #444;
+  color: white;
 }
 
 .no-pets-text {
@@ -134,7 +142,7 @@
 }
 
 .soldpets-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
 }
 
 .soldpets-image {

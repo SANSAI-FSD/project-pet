@@ -284,28 +284,29 @@ const AdminPets = () => {
                 <option value="breed">Sort by Breed</option>
               </select>
 
-              <select onChange={(e) => setSortOrder(e.target.value)} value={sortOrder}>
+              {/* <select onChange={(e) => setSortOrder(e.target.value)} value={sortOrder}>
                 <option value="asc">Ascending</option>
                 <option value="desc">Descending</option>
-              </select>
+              </select> */}
             </div>
 
             <ul className="pet-list">
               {filteredPets.map((pet) => (
                 <li key={pet._id} className="pet-card">
-                  <div>
+                  <div className="pet-info">
                     <strong>{pet.name || "N/A"}</strong> - {pet.category || "N/A"}
                     <br />
                     <span>Breed: {pet.breed || "N/A"}</span>
                     <br />
                     <span>Age: {pet.age || "?"}</span>
-                  </div>
+                  
                   <button onClick={() => handleDelete(pet._id)} className="delete-btn">
                     ❌ Delete
                   </button>
                   <button className="sold-btn" onClick={() => handleMarkAsSold(pet)}>
                     ✅ Sold
                   </button>
+                  </div>
                 </li>
               ))}
             </ul>

@@ -49,7 +49,7 @@
 }
 .user-list-section {
   padding: 1rem;
-  max-width: 800px;
+  max-width: 500px;
   margin: auto;
 }
 
@@ -63,6 +63,7 @@
 .user-list {
   list-style-type: none;
   padding: 0;
+  /* display: flex; */
 }
 
 .user-card {
@@ -70,7 +71,7 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  background-color: #fff;
+  background-color: #6c757d;
   padding: 1rem;
   margin-bottom: 1rem;
   border-radius: 12px;
@@ -87,7 +88,7 @@
   font-size: 1rem;
 }
 
-.delete-btn {
+.delete-btns {
   background-color: gold;
   color: black;
   border: none;
@@ -128,7 +129,7 @@
 
 .spinner {
   border: 6px solid #f3f3f3;
-  border-top: 6px solid #28a745;
+  border-top: 6px solid black;
   border-radius: 50%;
   width: 50px;
   height: 50px;
