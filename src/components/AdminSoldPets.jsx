@@ -55,7 +55,6 @@ const AdminSoldPets = () => {
           <option value="">Sort by</option>
           <option value="name">Name</option>
           <option value="breed">Breed</option>
-          <option value="category">Category</option>
           <option value="age">Age</option>
         </select>
       </div>
