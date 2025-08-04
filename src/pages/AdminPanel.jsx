@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Popup from '../components/Popup';
 import AdminNavbar from "../components/AdminNavbar";  
+import AdminStats from "../components/AdminStats";
 
 const AdminPanel = () => {
   const [users, setUsers] = useState([]);
@@ -32,29 +33,8 @@ const AdminPanel = () => {
       <AdminNavbar />
       
       <h2>Admin Panel</h2>
+      <AdminStats />
 
-      <section>
-        <h3>Users</h3>
-        <ul>
-          {users.map((user) => (
-            <li key={user._id}>
-              {user.username} ({user.email})
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section>
-        <h3>Pets</h3>
-        <ul>
-          {pets.map((pet) => (
-            <li key={pet._id}>
-              {pet.name} - {pet.breed}-{pet.age}
-              
-            </li>
-          ))}
-        </ul>
-      </section>
     </div>
   );
 };

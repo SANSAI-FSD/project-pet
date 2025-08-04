@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import AdminNavbar from "./AdminNavbar";
 import "./AdminSoldPets.css";
+import Popup from "./Popup";
 
 const AdminSoldPets = () => {
   const [soldPets, setSoldPets] = useState([]);
@@ -38,6 +39,7 @@ const AdminSoldPets = () => {
 
   return (
     <div className="admin-sold-container">
+      <Popup />
       <AdminNavbar />
       <h2 className="admin-sold-heading">Sold Pets</h2>
 
