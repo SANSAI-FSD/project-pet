@@ -197,8 +197,8 @@ h1 {
 }
 
 .delete-btn {
-  background-color: #ff4d4d;
-  color: #fff;
+  background-color: goldenrod;
+  color: black;
 }
 
 .delete-btn:hover {

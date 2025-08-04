@@ -7,6 +7,11 @@ import logo from '../assets/Logo.jpg';
 
 function Navbar({ setShowQR, setShowAddPet }) {
   const [isAdmin, setIsAdmin] = useState(false);
+  const user = JSON.parse(localStorage.getItem("user"));
+  const handleLogout = () => {
+    localStorage.clear();
+  };
+
 
   useEffect(() => {
     try {
@@ -38,9 +43,12 @@ function Navbar({ setShowQR, setShowAddPet }) {
         {isAdmin && (
           <li><NavLink to="/admin" className="nav-link admin-link">ADMIN PANEL</NavLink></li>
         )}
+        <li><NavLink to="/" onClick={handleLogout} className="nav-link">LOGOUT</NavLink></li>
       </ul>
     </nav>
   );
 }
 
 export default Navbar;
+
+

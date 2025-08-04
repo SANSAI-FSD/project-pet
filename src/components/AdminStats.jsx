@@ -113,7 +113,10 @@ const AdminStats = () => {
       .catch(() => setError("Failed to load stats"));
   });
 
-  if (!stats) return <p className="loading">Loading dashboard...</p>;
+  if (!stats) return <div className="loading-container">
+            <div className="spinner"></div>
+            <p>Loading pets...</p>
+          </div>; // 🆕 loading state
   if (error) return <p className="error">{error}</p>;
 
   const chartData = [
@@ -137,12 +140,12 @@ const AdminStats = () => {
       </div> */}
 
       <div className="stat-grid">
-        <StatCard label="Total Users" value={stats.totalUsers} color="#6C63FF" />
-        <StatCard label="Users Joined" value={stats.todayUsers} color="#00C897" />
-        <StatCard label="Total Pets" value={stats.totalPets} color="#FFAA4C" />
-        <StatCard label="Pets Added" value={stats.todayPets} color="#4DB6AC" />
-        <StatCard label="Total Sold" value={stats.totalSoldPets} color="#F06292" />
-        <StatCard label="Sold Today" value={stats.todaySoldPets} color="#9575CD" />
+        <StatCard label="Total Users" value={stats.totalUsers} color="#222" />
+        <StatCard label="Users Joined" value={stats.todayUsers} color="#222" />
+        <StatCard label="Total Pets" value={stats.totalPets} color="#222" />
+        <StatCard label="Pets Added" value={stats.todayPets} color="#222" />
+        <StatCard label="Total Sold" value={stats.totalSoldPets} color="#222" />
+        <StatCard label="Sold Today" value={stats.todaySoldPets} color="#222" />
       </div>
 
       <div className="chart-section">

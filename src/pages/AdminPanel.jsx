@@ -32,7 +32,7 @@ const AdminPanel = () => {
       />
       <AdminNavbar />
       
-      <h2>Admin Panel</h2>
+      {/* <h2>Admin Panel</h2> */}
       <AdminStats />
 
     </div>

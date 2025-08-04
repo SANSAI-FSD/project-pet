@@ -5,14 +5,11 @@ import { NavLink } from "react-router-dom";
 import "./AdminNavbar.css";
 
 const AdminNavbar = () => {
-  const handleLogout = () => {
-    localStorage.clear();
-  };
-
+  
   return (
     <div className="admin-navbar">
       <NavLink
-        to="/admin"
+        to="/admin" end
         className={({ isActive }) => (isActive ? "active-link" : "")}
       >
         Dashboard
@@ -39,9 +36,7 @@ const AdminNavbar = () => {
         Pets
       </NavLink>
 
-      <NavLink to="/" onClick={handleLogout}>
-        Logout
-      </NavLink>
+      
     </div>
   );
 };

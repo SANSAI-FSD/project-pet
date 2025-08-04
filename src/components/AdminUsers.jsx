@@ -10,12 +10,20 @@ const AdminUsers = () => {
   const [sortField, setSortField] = useState(null);
   const [sortOrder, setSortOrder] = useState("asc");
   const [filterText, setFilterText] = useState("");
+  const [loading, setLoading] = useState(false); // 🆕 loading state
 
   const fetchUsers = () => {
+    setLoading(true); // 🆕 set loading true
     fetch("https://project-user-login-and-registers.onrender.com/api/admin/users")
       .then((res) => res.json())
-      .then((data) => setUsers(data))
-      .catch((err) => console.error("Error fetching users:", err));
+      .then((data) => {
+        setUsers(data);
+        setLoading(false); // 🆕 set loading false
+      })
+      .catch((err) => {
+        console.error("Error fetching users:", err);
+        setLoading(false); // 🆕 stop loading on error too
+      });
   };
 
   useEffect(() => {
@@ -49,14 +57,14 @@ const AdminUsers = () => {
     }
   };
 
- const filteredUsers = users.filter((user) => {
-  const search = filterText.toLowerCase();
-  const username = user.username?.toLowerCase() || "";
-  const email = user.email?.toLowerCase() || "";
-  return (
-    username.startsWith(search) || email.startsWith(search)
-  );
-});
+  const filteredUsers = users.filter((user) => {
+    const search = filterText.toLowerCase();
+    const username = user.username?.toLowerCase() || "";
+    const email = user.email?.toLowerCase() || "";
+    return (
+      username.startsWith(search) || email.startsWith(search)
+    );
+  });
 
   const sortedUsers = [...filteredUsers].sort((a, b) => {
     if (!sortField) return 0;
@@ -81,30 +89,29 @@ const AdminUsers = () => {
           value={filterText}
           onChange={(e) => setFilterText(e.target.value)}
         />
-        <div className="sort-controls">
-          <span>Sort by:</span>
-          <button onClick={() => toggleSort("username")}>
-            Username {sortField === "username" ? (sortOrder === "asc" ? "↑" : "↓") : ""}
-          </button>
-          <button onClick={() => toggleSort("email")}>
-            Email {sortField === "email" ? (sortOrder === "asc" ? "↑" : "↓") : ""}
-          </button>
-        </div>
       </div>
 
       <section className="user-list-section">
         <h3 className="user-list-title">Users</h3>
-        <ul className="user-list">
-          {sortedUsers.map((user) => (
-            <li key={user._id} className="user-card">
-              <div>
-                <p><strong>{user.username}</strong></p>
-                <p>{user.email}</p>
-              </div>
-              <button className="delete-btn" onClick={() => handleDelete(user._id)}>Delete</button>
-            </li>
-          ))}
-        </ul>
+
+        {loading ? (
+         <div className="loading-container">
+            <div className="spinner"></div>
+            <p>Loading pets...</p>
+          </div>
+        ) : (
+          <ul className="user-list">
+            {sortedUsers.map((user) => (
+              <li key={user._id} className="user-card">
+                <div>
+                  <p><strong>{user.username}</strong></p>
+                  <p>{user.email}</p>
+                </div>
+                <button className="delete-btn" onClick={() => handleDelete(user._id)}>Delete</button>
+              </li>
+            ))}
+          </ul>
+        )}
       </section>
     </div>
   );
