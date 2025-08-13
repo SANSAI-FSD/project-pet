@@ -54,17 +54,81 @@
 
 // export default AdminStats;
 
+// import React, { useEffect, useState } from "react";
+// import "./AdminStats.css";
+// import CountUp from "react-countup";
+// import { motion } from "framer-motion";
+
+// const AdminStats = () => {
+//   const [stats, setStats] = useState(null);
+//   const [error, setError] = useState("");
+
+//   useEffect(() => {
+//     fetch(`https://project-user-login-and-registers.onrender.com/api/admin/stats`)
+//       .then((res) => res.json())
+//       .then((data) => setStats(data))
+//       .catch(() => setError("Failed to load stats"));
+//   }, []);
+
+//   if (!stats)
+//     return (
+//       <div className="loading-container">
+//         <div className="spinner"></div>
+//         <p>Loading stats...</p>
+//       </div>
+//     );
+
+//   if (error) return <p className="error">{error}</p>;
+
+//   return (
+//     <div className="admin-dashboard">
+//       <h1 className="dashboard-title">📊 Admin Dashboard</h1>
+
+//       <motion.div
+//         className="stat-grid"
+//         initial={{ opacity: 0, y: 50 }}
+//         animate={{ opacity: 1, y: 0 }}
+//         transition={{ duration: 0.8, delay: 0.2 }}
+//       >
+//         <StatCard label="Total Users" value={stats.totalUsers} color="#343a40" />
+//         <StatCard label="Users Joined" value={stats.todayUsers} color="#6c757d" />
+//         <StatCard label="Total Pets" value={stats.totalPets} color="#495057" />
+//         <StatCard label="Pets Added" value={stats.todayPets} color="#adb5bd" />
+//         <StatCard label="Total Sold" value={stats.totalSoldPets} color="#212529" />
+//         <StatCard label="Sold Today" value={stats.todaySoldPets} color="#868e96" />
+//       </motion.div>
+//     </div>
+//   );
+// };
+
+// const StatCard = ({ label, value, color }) => (
+//   <motion.div
+//     className="stat-card"
+//     style={{ backgroundColor: color }}
+//     initial={{ scale: 0.8, opacity: 0 }}
+//     animate={{ scale: 1, opacity: 1 }}
+//     transition={{ type: "spring", stiffness: 100, damping: 10 }}
+//   >
+//     <p className="stat-label">{label}</p>
+//     <h2 className="stat-value">
+//       <CountUp end={value} duration={1.8} separator="," />
+//     </h2>
+//   </motion.div>
+// );
+
+// export default AdminStats;
+
+
+
 import React, { useEffect, useState } from "react";
 import "./AdminStats.css";
-import CountUp from "react-countup";
-import { motion } from "framer-motion";
 
 const AdminStats = () => {
   const [stats, setStats] = useState(null);
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch(`https://project-user-login-and-registers.onrender.com/api/admin/stats`)
+    fetch('https://project-user-login-and-registers.onrender.com/api/admin/stats')
       .then((res) => res.json())
       .then((data) => setStats(data))
       .catch(() => setError("Failed to load stats"));
@@ -77,43 +141,56 @@ const AdminStats = () => {
         <p>Loading stats...</p>
       </div>
     );
-
   if (error) return <p className="error">{error}</p>;
 
   return (
     <div className="admin-dashboard">
       <h1 className="dashboard-title">📊 Admin Dashboard</h1>
 
-      <motion.div
-        className="stat-grid"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-      >
-        <StatCard label="Total Users" value={stats.totalUsers} color="#343a40" />
-        <StatCard label="Users Joined" value={stats.todayUsers} color="#6c757d" />
-        <StatCard label="Total Pets" value={stats.totalPets} color="#495057" />
-        <StatCard label="Pets Added" value={stats.todayPets} color="#adb5bd" />
-        <StatCard label="Total Sold" value={stats.totalSoldPets} color="#212529" />
-        <StatCard label="Sold Today" value={stats.todaySoldPets} color="#868e96" />
-      </motion.div>
+      {/* Overview Stats */}
+      <div className="stat-grid">
+        <StatCard label="Total Users" value={stats.totalUsers} />
+        <StatCard label="Users Joined Today" value={stats.todayUsers} />
+        <StatCard label="Total Pets" value={stats.totalPets} />
+        <StatCard label="Pets Added Today" value={stats.todayPets} />
+        <StatCard label="Total Sold" value={stats.totalSoldPets} />
+        <StatCard label="Sold Today" value={stats.todaySoldPets} />
+      </div>
+      {/* Top Breeds */}
+      <div className="section">
+        <h2 className="section-title">🔥 Top Breeds Sold</h2>
+        <ul className="breed-list">
+          <li>Golden Retriever - 8 sold</li>
+          <li>Persian Cat - 5 sold</li>
+          <li>Parrot - 3 sold</li>
+        </ul>
+      </div>
+
+      {/* Recent Activity */}
+      <div className="section">
+        <h2 className="section-title">📅 Recent Activity</h2>
+        <ul className="activity-list">
+          <li>[Aug 5] Added Pet: German Shepherd</li>
+          <li>[Aug 4] Deleted User: john123</li>
+          <li>[Aug 3] Sold Pet: Persian Cat</li>
+        </ul>
+      </div>
     </div>
   );
 };
 
-const StatCard = ({ label, value, color }) => (
-  <motion.div
-    className="stat-card"
-    style={{ backgroundColor: color }}
-    initial={{ scale: 0.8, opacity: 0 }}
-    animate={{ scale: 1, opacity: 1 }}
-    transition={{ type: "spring", stiffness: 100, damping: 10 }}
-  >
+const StatCard = ({ label, value }) => (
+  <div className="stat-card">
     <p className="stat-label">{label}</p>
-    <h2 className="stat-value">
-      <CountUp end={value} duration={1.8} separator="," />
-    </h2>
-  </motion.div>
+    <h2 className="stat-value">{value}</h2>
+  </div>
+);
+
+const CategoryCard = ({ name, count }) => (
+  <div className="category-card">
+    <p className="category-name">{name}</p>
+    <p className="category-count">{count}</p>
+  </div>
 );
 
 export default AdminStats;
