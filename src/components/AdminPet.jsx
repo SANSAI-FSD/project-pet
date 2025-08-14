@@ -196,7 +196,7 @@ const AdminPets = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this pet listing?")) return;
     try {
-      await fetch('https://project-user-login-and-registers.onrender.comapi/admin/pets/${id}', {
+      await fetch('https://project-user-login-and-registers.onrender.com/api/admin/pets/${id}', {
         method: "DELETE",
       });
       setPets(pets.filter((pet) => pet._id !== id));
