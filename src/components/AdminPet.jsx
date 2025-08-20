@@ -33,11 +33,7 @@ const AdminPets = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this pet listing?")) return;
     try {
-<<<<<<< HEAD
       await fetch(`https://project-user-login-and-registers.onrender.com/api/admin/pets/${id}`, {
-=======
-      await fetch('https://project-user-login-and-registers.onrender.com/api/admin/pets/${id}', {
->>>>>>> 311db9ae9136efa9c0ee2d07c88baadaa8a93088
         method: "DELETE",
       });
       setPets(pets.filter((pet) => pet._id !== id));

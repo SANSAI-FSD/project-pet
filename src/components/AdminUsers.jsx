@@ -155,7 +155,7 @@ const AdminUsers = () => {
   const handleDelete = async (userId) => {
     if (!window.confirm("Are you sure you want to delete this user?")) return;
     try {
-      const res = await fetch('https://project-user-login-and-registers.onrender.com/api/admin/users/${userId}', {
+      const res = await fetch(`https://project-user-login-and-registers.onrender.com/api/admin/users/${userId}`, {
         method: "DELETE",
       });
       const result = await res.json();
